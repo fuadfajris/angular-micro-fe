@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
+    loadChildren: () =>
+      import('mfe1/MfefeatureModule').then((m) => {
+        return m.MfefeatureModule;
+      }),
     pathMatch: 'full'
   },
   {
@@ -13,6 +15,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('mfe1/MfefeatureModule').then((m) => {
         return m.MfefeatureModule;
+      }),
+  },
+  {
+    path: 'mfe2',
+    loadChildren: () =>
+      import('mfe2/CrudfeatureModule').then((m) => {
+        return m.CrudfeatureModule;
       }),
   }
 ];

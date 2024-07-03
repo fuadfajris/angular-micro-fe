@@ -10,7 +10,7 @@ sharedMappings.register(
 
 module.exports = {
   output: {
-    uniqueName: "shell",
+    uniqueName: "mfe2",
     publicPath: "auto"
   },
   optimization: {
@@ -29,21 +29,11 @@ module.exports = {
         library: { type: "module" },
 
         // For remotes (please adjust)
-        // name: "shell",
-        // filename: "remoteEntry.js",
-        // exposes: {
-        //     './Component': './projects/shell/src/app/app.component.ts',
-        // },
-        remotes: {
-          'mfe1': 'http://localhost:4201/mfe1remoteEntry.js',
-          'mfe2': 'http://localhost:4202/mfe2remoteEntry.js',
+        name: "mfe2",
+        filename: "mfe2remoteEntry.js",
+        exposes: {
+            './CrudfeatureModule': './projects/mfe2/src/app/crudfeature/crudfeature.module.ts',
         },
-
-        // For hosts (please adjust)
-        // remotes: {
-        //     "mfe1": "http://localhost:4200/remoteEntry.js",
-
-        // },
 
         shared: share({
           "@angular/core": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
