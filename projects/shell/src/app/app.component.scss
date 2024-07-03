@@ -1,0 +1,16 @@
+.content {
+    display: flex;
+    justify-content: flex-start;
+  }
+  
+  .right-content {
+    padding: 16px;
+    width: 100%;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .left-content {
+      display: none;
+    }
+  }
+  

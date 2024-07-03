@@ -1,5 +1,19 @@
-<h1>Angular MFE Host</h1>
+<!-- <h1>Angular MFE Host</h1>
 <a routerLink='/'>Main</a> &#160;
 <a routerLink='/mfe1'>Link to MFE</a>
 
-<router-outlet></router-outlet>
+<router-outlet></router-outlet> -->
+
+<app-header></app-header>
+<div>
+    <div class="content">
+        <div class="left-content">
+            <app-sidebar></app-sidebar>
+        </div>
+        <div class="right-content">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+    
+    <app-footer></app-footer>
+</div>
