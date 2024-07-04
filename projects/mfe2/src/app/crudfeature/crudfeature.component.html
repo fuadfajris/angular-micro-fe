@@ -1,1 +1,71 @@
-<p>crudfeature works!</p>
+<h1>User Table</h1>
+<button (click)="openModal('add', null)">Tambah User</button>
+
+<table>
+  <tr>
+    <th>No</th>
+    <th>Name</th>
+    <th>Username</th>
+    <th>Action</th>
+  </tr>
+  <tr *ngFor="let data of datas, index as i">
+    <td>{{i+1}}</td>
+    <td>{{data.name}}</td>
+    <td>{{data.username}}</td>
+    <td>
+        <button (click)="openModal('edit', data)">edit</button>
+        <button (click)="deleteData(data)">delete</button>
+    </td>
+  </tr>
+</table>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Add Modal content -->
+  <div class="modal-content">
+    <span class="close" (click)="closeModal('add')">&times;</span>
+    <form #addForm="ngForm" (ngSubmit)="test(addForm)">
+        <div>
+            <label for="name">Nama </label>
+            <input ngModel type="text" class="form-control" id="name" name="name" aria-describedby="name"
+            placeholder="Nama" required>
+        </div><br>
+
+        <div>
+            <label for="username">Username </label>
+            <input ngModel type="text" class="form-control" id="username" name="username" aria-describedby="username"
+            placeholder="Username" required>
+        </div><br>
+
+        <div>
+            <button id="add-form" type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+            <button [disabled]="addForm.invalid" type="submit">Simpan</button>  
+        </div>
+    </form>
+  </div>
+
+</div>
+
+<div id="myEditModal" class="modal">
+
+    <!-- Edit Modal content -->
+    <div class="modal-content">
+        <p>edit modal</p>
+      <span class="close" (click)="closeModal('edit')">&times;</span>
+      <form #editForm="ngForm">
+            <input type="hidden" ngModel="{{ editData?.id }}" name="id" id="id">
+          <div>
+              <label for="name">Edit Nama </label>
+              <input ngModel="{{editData?.name}}" type="text" class="form-control" id="name" name="name" aria-describedby="name"
+              placeholder="Nama" required>
+          </div><br>
+  
+          <div>
+              <button id="edit-form" type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+              <button (click)="testEdit(editForm.value)">Simpan</button>  
+          </div>
+      </form>
+    </div>
+  
+  </div>

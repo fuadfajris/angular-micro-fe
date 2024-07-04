@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { CrudfeatureRoutingModule } from './crudfeature-routing.module';
 import { CrudfeatureComponent } from './crudfeature.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +12,9 @@ import { CrudfeatureComponent } from './crudfeature.component';
   ],
   imports: [
     CommonModule,
-    CrudfeatureRoutingModule
+    CrudfeatureRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class CrudfeatureModule { }
